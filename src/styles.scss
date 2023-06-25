@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./assets/styles" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+
+  &::-moz-selection {
+    color: var(--app-white);
+    background: var(--app-primary-color);
+  }
+
+  &::selection {
+    color: var(--app-white);
+    background: var(--app-primary-color);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: auto !important;
+  font-size: 1.25rem;
+
+  @media (max-width: 991px) {
+    font-size: 0.8125rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.59375rem;
+  height: 0.59375rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--app-primary-color);
+  border: 0.0625rem solid transparent;
+  background-clip: content-box;
+}

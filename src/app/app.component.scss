@@ -1,0 +1,11 @@
+$navbarHeight: 3.75rem;
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  transition: width 0.25s ease-in-out;
+
+  .main-content {
+    min-height: calc(100vh - $navbarHeight);
+  }
+}
