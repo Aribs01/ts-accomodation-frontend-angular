@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     MatDialogModule,
+    MatTooltipModule,
     RouterModule.forChild(routes),
   ],
 })

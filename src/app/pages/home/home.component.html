@@ -40,6 +40,8 @@
                 'bg-grey': room.spacesLeft < 1,
                 'bg-pink': bookedRooms && bookedRooms.includes(room.roomNo)
               }"
+              [matTooltip]="room.spacesLeft < 1 ? 'No Space' : ''"
+              matTooltipPosition="above"
               *ngFor="let room of roomList"
               (click)="confirmRoomSelection(room)"
             >

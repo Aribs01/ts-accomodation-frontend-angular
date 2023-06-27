@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   confirmRoomSelection(room: RoomInterface) {
+    if (room.spacesLeft < 1) return;
     this.dialog.open(ConfirmationDialogComponent, {
       data: {
         halls: { ...room },
