@@ -37,7 +37,8 @@
               class="item d-flex justify-content-center align-items-center"
               [class]="{
                 'bg-blue': room.spacesLeft > 0,
-                'bg-grey': room.spacesLeft < 1
+                'bg-grey': room.spacesLeft < 1,
+                'bg-pink': bookedRooms && bookedRooms.includes(room.roomNo)
               }"
               *ngFor="let room of roomList"
               (click)="confirmRoomSelection(room)"

@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   roomListArr!: RoomInterface[][];
 
   selectedHall!: string;
+  bookedRooms: string[] = [];
 
   matricNo: string = '000000001';
 
@@ -67,16 +68,17 @@ export class HomeComponent implements OnInit, OnDestroy {
     return room.reduce((total, room) => total + room.spacesLeft, 0);
   }
 
-  confirmRoomSelection(halls: RoomInterface) {
+  confirmRoomSelection(room: RoomInterface) {
     this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        halls: { ...halls },
+        halls: { ...room },
         matricNo: this.matricNo,
       },
       autoFocus: true,
       panelClass: 'opt-dialog',
       backdropClass: 'opt-dialog-backdrop',
     });
+    this.bookedRooms.push(room.roomNo);
   }
 
   ngOnDestroy(): void {

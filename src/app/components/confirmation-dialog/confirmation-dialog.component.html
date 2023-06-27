@@ -1,6 +1,7 @@
 <div class="dialog">
-  <h1 mat-dialog-title class="fw-700">Add Room</h1>
-  <div mat-dialog-content class="mb-3">Would you like to this room?</div>
+  <h1 mat-dialog-title class="fw-700">Book Room</h1>
+  <div mat-dialog-content class="mb-1">Would you like to book this room?</div>
+  <div mat-dialog-content class="mb-3">Room Number: {{ data.halls.roomNo }}</div>
   <div mat-dialog-actions class="d-flex justify-content-end gap-2">
     <button
       (click)="closeDialog()"
@@ -17,7 +18,7 @@
       cdkFocusInitial
       class="ok-button"
     >
-      Ok
+      Yes
     </button>
   </div>
 </div>
