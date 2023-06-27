@@ -32,6 +32,8 @@ export class ConfirmationDialogComponent {
       .subscribe(() => {
         this._snackBar.open('Room saved successfully', '', {
           panelClass: 'snackbar',
+          verticalPosition: 'top',
+          duration: 3000,
         });
         this.dialogRef.close();
       });
