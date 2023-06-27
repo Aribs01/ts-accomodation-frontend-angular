@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AccomodationApiService {
+export class HallApiService {
   constructor(private http: HttpClient) {}
 
   getAllHalls(): Observable<HallInterface[]> {

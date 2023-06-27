@@ -1,5 +1,19 @@
 <div class="main">
-  <div class="section">
+  <div class="section-1 mb-2">
+    <div class="app-heading fw-700 mb-2">Select Hall</div>
+    <select
+      class="hall-select"
+      [(ngModel)]="selectedHall"
+      (change)="onHallSelectionChange()"
+    >
+      <option value="" disabled selected hidden>Select Hall</option>
+      <option [value]="hall.hallId" *ngFor="let hall of hallList">
+        {{ hall.hallName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="section mb-4">
     <div class="inner-card">
       <div class="app-heading fw-700 mb-2">Select a room</div>
       <p class="app-para-2 mb-5">
@@ -7,18 +21,42 @@
         application.
       </p>
 
-      <div class="main-container px-3">
-        <div class="header">
-          <span class="app-para-2">Third Floor</span>
-          <p class="app-caption font-grey">5 Rooms Available</p>
-        </div>
-
-        <div class="item-container">
-          <div class="item d-flex justify-content-center align-items-center">
-            aaa
+      <div class="main-container px-3" *ngIf="selectedHall">
+        <ng-container *ngFor="let roomList of roomListArr; index as i">
+          <div class="header">
+            <span class="app-para-2" *ngIf="roomList[0].roomNo">{{
+              floorMapping[roomList[0].roomNo.toString().charAt(0)]
+            }}</span>
+            <p class="app-caption font-grey">
+              {{ calculateTotalSpacesLeft(roomList) }} Rooms Available
+            </p>
           </div>
-        </div>
+
+          <div class="item-container mb-4">
+            <div
+              class="item d-flex justify-content-center align-items-center"
+              [class]="{
+                'bg-blue': room.spacesLeft > 0,
+                'bg-grey': room.spacesLeft < 1
+              }"
+              *ngFor="let room of roomList"
+              (click)="confirmRoomSelection(room)"
+            >
+              <div>
+                <div>
+                  {{ room.roomNo }}
+                </div>
+
+                <div>({{ room.spacesLeft }})</div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
+  </div>
+
+  <div class="button-footer d-flex justify-content-center">
+    <button class="proceed-button">Proceed</button>
   </div>
 </div>

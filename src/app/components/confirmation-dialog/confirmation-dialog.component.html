@@ -1,0 +1,23 @@
+<div class="dialog">
+  <h1 mat-dialog-title class="fw-700">Add Room</h1>
+  <div mat-dialog-content class="mb-3">Would you like to this room?</div>
+  <div mat-dialog-actions class="d-flex justify-content-end gap-2">
+    <button
+      (click)="closeDialog()"
+      mat-button
+      mat-dialog-close
+      class="cancel-button"
+    >
+      No
+    </button>
+    <button
+      (click)="confirmRoom()"
+      mat-button
+      mat-dialog-close
+      cdkFocusInitial
+      class="ok-button"
+    >
+      Ok
+    </button>
+  </div>
+</div>
