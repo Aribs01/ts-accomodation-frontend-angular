@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,7 +10,7 @@ import { RoomApiService } from 'src/app/services/room-api.service';
   templateUrl: './confirmation-dialog.component.html',
   styleUrls: ['./confirmation-dialog.component.scss'],
 })
-export class ConfirmationDialogComponent {
+export class ConfirmationDialogComponent implements OnDestroy {
   saveBookingSub!: Subscription;
 
   constructor(
@@ -41,5 +41,11 @@ export class ConfirmationDialogComponent {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  ngOnDestroy(): void {
+    if (this.saveBookingSub) {
+      this.saveBookingSub.unsubscribe();
+    }
   }
 }

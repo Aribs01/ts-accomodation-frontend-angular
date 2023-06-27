@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { HallInterface } from 'src/app/interfaces/hall.interface';
@@ -12,7 +12,7 @@ import { ConfirmationDialogComponent } from 'src/app/components/confirmation-dia
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   hallList!: HallInterface[];
   roomListArr!: RoomInterface[][];
 
